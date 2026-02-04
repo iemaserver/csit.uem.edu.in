@@ -3,7 +3,7 @@ import PageLayout from '../components/PageLayout';
 import GlassCard from '../components/GlassCard';
 import { User, Quote } from 'lucide-react';
 import heroBg from '../assets/hero-bg.jpg';
-import hodImg from '../assets/HOD.jpg';
+import hodImg from '../assets/HOD.png';
 
 
 
