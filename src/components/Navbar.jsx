@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import logo from '../assets/logo.png';
 
-
 const Navbar = () => {
   const [isEventsOpen, setIsEventsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,6 +17,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass-navbar">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
+          
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img
@@ -27,10 +27,9 @@ const Navbar = () => {
             />
           </Link>
 
-
-
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
+            
             <Link
               to="/"
               className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
@@ -55,6 +54,21 @@ const Navbar = () => {
             >
               About the Department
               {isActive('/about') && (
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-accent rounded-full" />
+              )}
+            </Link>
+
+            {/* Faculty Link */}
+            <Link
+              to="/faculty"
+              className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                isActive('/faculty') 
+                  ? 'text-accent' 
+                  : 'text-foreground/80 hover:text-accent'
+              }`}
+            >
+              Faculty
+              {isActive('/faculty') && (
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-accent rounded-full" />
               )}
             </Link>
@@ -116,6 +130,7 @@ const Navbar = () => {
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-accent rounded-full" />
               )}
             </Link>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -137,6 +152,7 @@ const Navbar = () => {
         }`}
       >
         <div className="py-4 px-4 space-y-2">
+
           <Link
             to="/"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -146,6 +162,7 @@ const Navbar = () => {
           >
             Home
           </Link>
+
           <Link
             to="/about"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -155,7 +172,17 @@ const Navbar = () => {
           >
             About the Department
           </Link>
-          
+
+          <Link
+            to="/faculty"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`block py-2 px-4 rounded-lg transition-colors ${
+              isActive('/faculty') ? 'text-accent bg-accent/10' : 'text-foreground/80 hover:text-accent'
+            }`}
+          >
+            Faculty
+          </Link>
+
           {/* Mobile Events */}
           <div className="py-2 px-4">
             <span className="text-foreground/80 font-medium">Events</span>
@@ -176,7 +203,7 @@ const Navbar = () => {
               ))}
             </div>
           </div>
-          
+
           <Link
             to="/contact"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -186,6 +213,7 @@ const Navbar = () => {
           >
             Contact
           </Link>
+
         </div>
       </div>
     </nav>
