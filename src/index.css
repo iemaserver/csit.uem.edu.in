@@ -1,8 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -12,7 +12,7 @@
     --color-accent: 43 55% 45%;
     --color-neutral: 20 10% 81%;
     --color-dark: 213 30% 16%;
-    
+
     /* Semantic tokens - Light Theme */
     --background: 20 10% 96%;
     --foreground: 213 30% 20%;
@@ -49,11 +49,23 @@
     --glass-border: rgba(45, 62, 86, 0.1);
     --glass-shadow: 0 8px 32px rgba(45, 62, 86, 0.1);
     --glass-blur: 20px;
-    
+
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(213 30% 26%) 0%, hsl(213 30% 35%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(43 55% 50%) 0%, hsl(43 55% 40%) 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(178, 201, 218, 0.3) 100%);
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(213 30% 26%) 0%,
+      hsl(213 30% 35%) 100%
+    );
+    --gradient-accent: linear-gradient(
+      135deg,
+      hsl(43 55% 50%) 0%,
+      hsl(43 55% 40%) 100%
+    );
+    --gradient-glass: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(178, 201, 218, 0.3) 100%
+    );
   }
 }
 
@@ -64,11 +76,16 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
   }
 }
 
@@ -111,7 +128,11 @@
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(213 30% 26%) 0%, hsl(43 55% 45%) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(213 30% 26%) 0%,
+      hsl(43 55% 45%) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -150,7 +171,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
@@ -159,7 +181,8 @@
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(1);
   }
