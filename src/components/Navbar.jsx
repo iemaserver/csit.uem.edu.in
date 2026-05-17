@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const location = useLocation();
 
-  const eventYears = [2022, 2023, 2024, 2025];
+  const eventYears = [2021, 2022, 2023, 2024, 2025, 2026];
   const magazineEditions = [1, 2, 3];
 
   const isActive = (path) => location.pathname === path;

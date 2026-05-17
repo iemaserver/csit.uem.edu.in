@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Calendar, MapPin, FileText } from 'lucide-react';
 import GlassCard from './GlassCard';
 
@@ -7,7 +8,8 @@ const EventCard = ({
   date, 
   mode, 
   description, 
-  imageUrl 
+  imageUrl,
+  linkTo,
 }) => {
   return (
     <GlassCard className="overflow-hidden group">
@@ -48,9 +50,18 @@ const EventCard = ({
             {description}
           </p>
 
-          <button className="glass-button px-4 py-2 rounded-lg text-sm text-accent font-medium">
-            Learn More
-          </button>
+          {linkTo ? (
+            <Link
+              to={linkTo}
+              className="glass-button px-4 py-2 rounded-lg text-sm text-accent font-medium inline-flex items-center justify-center"
+            >
+              Learn More
+            </Link>
+          ) : (
+            <button className="glass-button px-4 py-2 rounded-lg text-sm text-accent font-medium">
+              Learn More
+            </button>
+          )}
         </div>
       </div>
     </GlassCard>

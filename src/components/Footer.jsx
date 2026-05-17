@@ -14,7 +14,7 @@ const Footer = () => {
   { name: 'About', path: '/about' },
   { name: 'FDP', path: '/faculty' },
   { name: 'Conference Organised', path: '/conference-organised' },
-  { name: 'Events', path: '/events/2025' },
+  { name: 'Events', path: '/events/2026' },
   { name: 'Magazine', path: '/magazine' },
   { name: 'Newsletter', path: '/newsletter' },
   { name: 'Contact', path: '/contact' },

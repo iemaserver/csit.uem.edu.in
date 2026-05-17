@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Events from "./pages/Events";
+import EventDetail from "./pages/EventDetail";
 import FDP from "./pages/FDP";
 import ConferenceOrganised from "./pages/ConferenceOrganised";
 import NotFound from "./pages/NotFound";
@@ -23,6 +24,7 @@ const App = () => (
         <Route path="/contact" element={<Contact />} />
         <Route path="/faculty" element={<FDP />} />
         <Route path="/conference-organised" element={<ConferenceOrganised />} />
+        <Route path="/events/:year/:eventId" element={<EventDetail />} />
         <Route path="/events/:year" element={<Events />} />
 
         {/* REQUIRED */}
