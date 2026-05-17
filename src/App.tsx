@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
 import FDP from "./pages/FDP";
+import FDPGallery from "./pages/FDPGallery";
 import ConferenceOrganised from "./pages/ConferenceOrganised";
 import NotFound from "./pages/NotFound";
 import Magazine from "./pages/Magazine";
@@ -23,6 +24,7 @@ const App = () => (
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faculty" element={<FDP />} />
+        <Route path="/faculty/gallery/:slug" element={<FDPGallery />} />
         <Route path="/conference-organised" element={<ConferenceOrganised />} />
         <Route path="/events/:year/:eventId" element={<EventDetail />} />
         <Route path="/events/:year" element={<Events />} />

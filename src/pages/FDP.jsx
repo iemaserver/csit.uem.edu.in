@@ -2,35 +2,9 @@ import React from 'react';
 import PageLayout from '../components/PageLayout';
 import GlassCard from '../components/GlassCard';
 import SectionTitle from '../components/SectionTitle';
-import { Users } from 'lucide-react';
-
-// Sample FDP data
-const fdpData = [
-  {
-    name: 'Dr. FDP Name',
-    designation: 'Professor',
-  },
-  {
-    name: 'Dr. FDP Name',
-    designation: 'Associate Professor',
-  },
-  {
-    name: 'Dr. FDP Name',
-    designation: 'Assistant Professor',
-  },
-  {
-    name: 'Dr. FDP Name',
-    designation: 'Assistant Professor',
-  },
-  {
-    name: 'Dr. FDP Name',
-    designation: 'Associate Professor',
-  },
-  {
-    name: 'Dr. FDP Name',
-    designation: 'Professor',
-  },
-];
+import { Button } from '../components/ui/button';
+import { Link } from 'react-router-dom';
+import fdpData from '../lib/fdpData';
 
 const FDP = () => {
   return (
@@ -39,39 +13,59 @@ const FDP = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <SectionTitle
             title="FDP"
-            subtitle="Meet the dedicated FDP members of the department"
           />
+          <div className="space-y-10">
 
-          {/* Icon Header (kept same visual vibe) */}
-          <div className="flex justify-center mb-12">
-            <GlassCard padding="p-4 lg:p-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center">
-                  <Users className="w-6 h-6 text-accent" />
-                </div>
-                <h2 className="text-2xl font-serif font-bold text-foreground">
-                  Our FDP
-                </h2>
-              </div>
-            </GlassCard>
-          </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {fdpData
+                .slice()
+                .sort((a, b) => {
+                  const yearA = parseInt(a.title.match(/\d{4}/)?.[0] || '0', 10);
+                  const yearB = parseInt(b.title.match(/\d{4}/)?.[0] || '0', 10);
+                  if (yearA !== yearB) return yearB - yearA; // descending year
+                  // put 'odd' before 'even'
+                  const semA = a.title.toLowerCase().includes('odd') ? 0 : 1;
+                  const semB = b.title.toLowerCase().includes('odd') ? 0 : 1;
+                  return semA - semB;
+                })
+                .map((item) => (
+                <GlassCard key={item.title} padding="p-0" className="overflow-hidden">
+                  <div className="p-4 pb-0">
+                    <div className="flex items-center justify-between gap-3">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.3em] text-primary/80">
+                          FDP
+                        </p>
+                        <h3 className="mt-2 text-lg font-semibold text-foreground">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <div className="rounded-full bg-primary/10 px-2 py-0.5 text-sm font-medium text-primary">
+                        {item.rest.length} photos
+                      </div>
+                    </div>
+                  </div>
 
-          {/* 2 Column Grid */}
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-            {fdpData.map((fdp, index) => (
-              <GlassCard
-                key={index}
-                padding="p-6"
-                className="transition-all duration-300 hover:scale-[1.02]"
-              >
-                <h3 className="text-xl font-semibold text-foreground mb-2">
-                  {fdp.name}
-                </h3>
-                <p className="text-muted-foreground">
-                  {fdp.designation}
-                </p>
-              </GlassCard>
-            ))}
+                  <div className="border-t border-white/10 bg-slate-950/5 flex justify-center">
+                    <div className="w-full px-2 py-4 flex justify-center">
+                      <img
+                        src={item.cover}
+                        alt={`${item.title} cover`}
+                        className="w-full max-w-[560px] h-auto object-contain rounded-md shadow-sm transition duration-200 hover:scale-105"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="p-4 pt-3">
+                    <Link to={`/faculty/gallery/${item.slug}`}>
+                      <Button variant="secondary" className="w-full">
+                        View event photos
+                      </Button>
+                    </Link>
+                  </div>
+                </GlassCard>
+              ))}
+            </div>
           </div>
         </div>
       </section>
