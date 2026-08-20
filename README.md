@@ -130,8 +130,14 @@ npm run lint
 # Run tests
 npm test
 
+# Run tests in watch mode
+npm run test:watch
+
 # Build for production
 npm run build
+
+# Build using development mode
+npm run build:dev
 
 # Preview production build locally
 npm run preview
