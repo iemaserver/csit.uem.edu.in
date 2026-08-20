@@ -175,7 +175,7 @@ push → main
 
 | Secret | Description |
 |---|---|
-| `FIREBASE_SERVICE_ACCOUNT` | Firebase service account JSON (base64) |
+| `FIREBASE_SERVICE_ACCOUNT` | Firebase service account JSON |
 | `FIREBASE_PROJECT_ID` | Firebase project ID (`uemk-cst-csit`) |
 
 > `GITHUB_TOKEN` is provided automatically by GitHub Actions for PR comments.
